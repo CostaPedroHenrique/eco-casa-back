@@ -6,7 +6,13 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+from apps.deposit.api.viewsets import BalanceViewSet, DepositViewSet, MaterialViewSet
+
 router = routers.DefaultRouter()
+
+router.register(r'balances', BalanceViewSet)
+router.register(r'deposits', DepositViewSet)
+router.register(r'materials', MaterialViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
